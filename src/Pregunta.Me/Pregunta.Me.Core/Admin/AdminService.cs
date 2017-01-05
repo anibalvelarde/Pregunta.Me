@@ -28,5 +28,16 @@ namespace Pregunta.Me.Core.Admin
 
             return user;
         }
+
+        public InquirerEdit CreateInquirer(string firstName, string lastName, string email)
+        {
+            var user = new InquirerEdit();
+            user.FirstName = firstName;
+            user.LastName = lastName;
+            user.Email = email;
+            user.Save();
+
+            return user;
+        }
     }
 }

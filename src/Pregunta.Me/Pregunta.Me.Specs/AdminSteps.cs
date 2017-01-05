@@ -11,6 +11,7 @@ namespace Pregunta.Me.Specs
         AdminService svc = new AdminService();
 
         ExpertEdit expert { get; set; }
+        InquirerEdit inquirer { get; set; }
 
         [Given(@"a well formed AdminService")]
         public void GivenAWellFormedAdminService()
@@ -18,7 +19,7 @@ namespace Pregunta.Me.Specs
             Assert.IsTrue(svc.IsValid);
         }
         
-        [When(@"I create a new Expert User with it's required properties")]
+        [When(@"I create a new Expert User with its required properties")]
         public void WhenICreateANewExpertUserWithItSRequiredProperties()
         {
             expert = svc.CreateExpert("Roger", "Fett", "rfet@heaven.com", "USD", 5.00, "English");
@@ -35,5 +36,24 @@ namespace Pregunta.Me.Specs
         {
             Assert.AreNotEqual(expertId, expert.ExpertId);
         }
+
+        [When(@"I create a new Inquirer User with its required properties")]
+        public void WhenICreateANewInquirerUserWithItsRequiredProperties()
+        {
+            inquirer = svc.CreateInquirer("Anibal", "Velarde", "anibal@earth.com");
+        }
+
+        [Then(@"a new Inquirer is created with IsValid property equals to true")]
+        public void ThenANewInquirerIsCreatedWithIsValidPropertyEqualsToTrue()
+        {
+            Assert.IsTrue(inquirer.IsValid);
+        }
+
+        [Then(@"InquirerId propery != (.*)")]
+        public void ThenInquirerIdPropery(int inquirerId)
+        {
+            Assert.AreNotEqual(inquirerId, inquirer.InquirerId);
+        }
+
     }
 }

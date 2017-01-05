@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Admin\AdminService.cs" />
     <Compile Include="Admin\ExpertEdit.cs" />
+    <Compile Include="Admin\InquirerEdit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
