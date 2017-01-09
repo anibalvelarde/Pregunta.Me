@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administration\AdminService.cs" />
+    <Compile Include="Administration\ExpertRegistrationRequest.cs" />
+    <Compile Include="Administration\ExpertRegistrationResponse.cs" />
+    <Compile Include="Administration\IExpertRegistrationRequest.cs" />
+    <Compile Include="Administration\IExpertRegistrationResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
