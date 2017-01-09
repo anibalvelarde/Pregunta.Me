@@ -31,6 +31,8 @@ namespace Pregunta.Me.UnitTests.Serivces
             IExpertRegistrationResponse response = svc.RegisterExpert(request);
 
             // assert...
+            Assert.IsNotNull(response.Expert);
+            Assert.IsTrue(response.IsValid);
             Assert.AreEqual(request.FirstName, response.Expert.FirstName, "Failed to set First Name.");
             Assert.AreEqual(request.LastName, response.Expert.LastName, "Failed to set Last Name.");
             Assert.AreEqual(request.BillingRate, response.Expert.BillingRate, "Failed to set Billing Rate.");
@@ -39,6 +41,24 @@ namespace Pregunta.Me.UnitTests.Serivces
             Assert.AreEqual(request.Email, response.Expert.Email.Address, "Failed to set Email.");
             Assert.AreEqual(request.Language, response.Expert.Language, "Failed to set Language.");
         }
+
+        [TestMethod]
+        public void Should_BeIncorrect_When_CreatingExpertWithRegistrationRequestThrowsExceptions()
+        {
+            // arrange...
+            IExpertRegistrationRequest request = this.MakeNewRegistrationRequest();
+            request.Email = string.Empty;
+            var svc = new AdminService();            
+
+            // act...
+            IExpertRegistrationResponse response = svc.RegisterExpert(request);
+
+            // assert...
+            Assert.IsNull(response.Expert);
+            Assert.IsNotNull(response.Errors);
+            Assert.IsFalse(response.IsValid);
+        }
+
 
         private IExpertRegistrationRequest MakeNewRegistrationRequest()
         {
