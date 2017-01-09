@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pregunta.Me.Core.Admin;
+using Pregunta.Me.Services.Administration;
+using Pregunta.Me.Core.Administration;
 using System;
 using TechTalk.SpecFlow;
 
@@ -22,7 +23,7 @@ namespace Pregunta.Me.Specs
         [When(@"I create a new Expert User with its required properties")]
         public void WhenICreateANewExpertUserWithItSRequiredProperties()
         {
-            expert = svc.CreateExpert("Roger", "Fett", "rfet@heaven.com", "USD", 5.00, "English");
+            expert = svc.CreateExpert("Roger", "Fett", "rfet@heaven.com", "USD", 5, "English", "USA");
         }
         
         [Then(@"a new Expert is created with IsValid property = true")]
