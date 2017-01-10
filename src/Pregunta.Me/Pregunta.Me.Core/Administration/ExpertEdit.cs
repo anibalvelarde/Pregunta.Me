@@ -1,4 +1,5 @@
-﻿using Pregunta.Me.Core.ValueObjects;
+﻿using Pregunta.Me.Core.Base;
+using Pregunta.Me.Core.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Pregunta.Me.Core.Administration
 {
-    public class ExpertEdit
+    public class ExpertEdit : Entity
     {
         public static ExpertEdit Register(string firstName, string lastName, string email, string currency, decimal billingRate, string language, string country)
         {
@@ -28,7 +29,6 @@ namespace Pregunta.Me.Core.Administration
 
         internal ExpertEdit() { }
 
-        public int ExpertId { get; private set; }
         public string FirstName { get; internal set; }
         public string LastName { get; internal set; }
         public Email Email { get; internal set; }
@@ -40,7 +40,7 @@ namespace Pregunta.Me.Core.Administration
         public bool IsValid { get; private set; }
         public void Save()
         {
-            ExpertId = 1000;
+            Id = 1000;
             IsValid = true;
         }
         

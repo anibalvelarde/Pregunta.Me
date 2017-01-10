@@ -1,13 +1,10 @@
-﻿using Pregunta.Me.Core.ValueObjects;
+﻿using Pregunta.Me.Core.Base;
+using Pregunta.Me.Core.ValueObjects;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pregunta.Me.Core.Administration
 {
-    public class InquirerEdit
+    public class InquirerEdit : Entity
     {
         public static InquirerEdit Register(string firstName, string lastName, string email)
         {
@@ -22,8 +19,6 @@ namespace Pregunta.Me.Core.Administration
         }
         public InquirerEdit() { }
 
-        public int InquirerId { get; private set; }
-
         public string FirstName { get; internal set; }
         public string LastName { get; internal set; }
         public Email Email { get; internal set; }
@@ -31,7 +26,7 @@ namespace Pregunta.Me.Core.Administration
 
         public void Save()
         {
-            InquirerId = 2000;
+            Id = 2000;
             IsValid = true;
         }
 

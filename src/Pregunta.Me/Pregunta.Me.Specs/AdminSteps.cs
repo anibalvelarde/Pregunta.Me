@@ -35,7 +35,7 @@ namespace Pregunta.Me.Specs
         [Then(@"an ExpertId property != (.*)")]
         public void ThenAnExpertIdProperty(int expertId)
         {
-            Assert.AreNotEqual(expertId, expert.ExpertId);
+            Assert.AreNotEqual(expertId, expert.Id);
         }
 
         [When(@"I create a new Inquirer User with its required properties")]
@@ -53,7 +53,7 @@ namespace Pregunta.Me.Specs
         [Then(@"InquirerId propery != (.*)")]
         public void ThenInquirerIdPropery(int inquirerId)
         {
-            Assert.AreNotEqual(inquirerId, inquirer.InquirerId);
+            Assert.AreNotEqual(inquirerId, inquirer.Id);
         }
 
     }
