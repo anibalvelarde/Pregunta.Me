@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pregunta.Me.Core.Base;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pregunta.Me.Core.ValueObjects
 {
-    public class Email
+    public class Email : ValueObject<Email>
     {
         private readonly MailAddress _mailAddress;
 
@@ -33,6 +34,29 @@ namespace Pregunta.Me.Core.ValueObjects
             if (string.IsNullOrEmpty(displayName)) { throw new ArgumentNullException("Display Name cannot be null or empty."); }
             var anEmailAddress = new MailAddress(email, displayName, Encoding.Unicode);
             return anEmailAddress;
+        }
+
+        protected override bool EqualsCore(Email other)
+        {
+            return Address == other.Address
+                && DisplayName == other.DisplayName
+                && Host == other.Host
+                && User == other.User;
+        }
+
+        protected override int GetHashCodeCore()
+        {
+            ///////////////
+            // MOTIVATION:
+            // More info about the motivation for this design approach can be found at the following link: 
+            // http://stackoverflow.com/questions/371328/why-is-it-important-to-override-gethashcode-when-equals-method-is-overridden
+            ///////////////
+            int hash = 13;
+            hash = (hash * 7) + Address.GetHashCode();
+            hash = (hash * 7) + DisplayName.GetHashCode();
+            hash = (hash * 7) + Host.GetHashCode();
+            hash = (hash * 7) + User.GetHashCode();
+            return hash;
         }
     }
 }
