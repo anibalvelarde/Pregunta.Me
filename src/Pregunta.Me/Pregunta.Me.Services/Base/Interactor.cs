@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pregunta.Me.Services.Base
 {
-    public abstract class Interactor<T, Req, Resp>
-        where Req : IRequest
-        where Resp : IResponse
+    public abstract class Interactor<T, Request, Response>
+        where Request : IRequest
+        where Response : IResponse
     {
-        public abstract Resp Process(Req aRequest);
+        public abstract Response Process(Request aRequest);
     }
 }
