@@ -40,11 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration\AdminService.cs" />
+    <Compile Include="Administration\IInquirerRegistrationRequest.cs" />
+    <Compile Include="Administration\IInquirerRegistrationResponse.cs" />
+    <Compile Include="Administration\InquirerRegistrationRequest.cs" />
+    <Compile Include="Administration\InquirerRegistrationResponse.cs" />
+    <Compile Include="Administration\InquirerRegistrationService.cs" />
+    <Compile Include="Administration\ExpertRegistrationService.cs" />
     <Compile Include="Administration\ExpertRegistrationRequest.cs" />
     <Compile Include="Administration\ExpertRegistrationResponse.cs" />
     <Compile Include="Administration\IExpertRegistrationRequest.cs" />
     <Compile Include="Administration\IExpertRegistrationResponse.cs" />
+    <Compile Include="Base\Interactor.cs" />
+    <Compile Include="Base\IRequest.cs" />
+    <Compile Include="Base\IResponse.cs" />
+    <Compile Include="Base\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

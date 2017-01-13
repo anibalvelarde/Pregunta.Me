@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Administration\ExpertEdit.cs" />
     <Compile Include="Administration\InquirerEdit.cs" />
+    <Compile Include="Base\AggregateRoot.cs" />
     <Compile Include="Base\Entity.cs" />
     <Compile Include="Base\ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

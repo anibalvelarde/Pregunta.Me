@@ -14,7 +14,7 @@ namespace Pregunta.Me.UnitTests.Serivces
             IExpertRegistrationRequest req;
             
             // Act...
-            req = AdminService.IssueNewRegistrationRequestForExpert();
+            req = ExpertRegistrationService.IssueNewRegistrationRequestForExpert();
 
             // Assert...
             Assert.IsInstanceOfType(req, typeof(ExpertRegistrationRequest));
@@ -25,10 +25,10 @@ namespace Pregunta.Me.UnitTests.Serivces
         {
             // arrange...
             IExpertRegistrationRequest request = this.MakeNewRegistrationRequest();
-            var svc = new AdminService();
+            var svc = new ExpertRegistrationService();
 
             // act...
-            IExpertRegistrationResponse response = svc.RegisterExpert(request);
+            IExpertRegistrationResponse response = svc.Process(request);
 
             // assert...
             Assert.IsNotNull(response.Expert);
@@ -48,10 +48,10 @@ namespace Pregunta.Me.UnitTests.Serivces
             // arrange...
             IExpertRegistrationRequest request = this.MakeNewRegistrationRequest();
             request.Email = string.Empty;
-            var svc = new AdminService();            
+            var svc = new ExpertRegistrationService();            
 
             // act...
-            IExpertRegistrationResponse response = svc.RegisterExpert(request);
+            IExpertRegistrationResponse response = svc.Process(request);
 
             // assert...
             Assert.IsNull(response.Expert);
@@ -63,7 +63,7 @@ namespace Pregunta.Me.UnitTests.Serivces
         private IExpertRegistrationRequest MakeNewRegistrationRequest()
         {
             var rog = TestUtilities.rog;
-            var req = AdminService.IssueNewRegistrationRequestForExpert();
+            var req = ExpertRegistrationService.IssueNewRegistrationRequestForExpert();
             req.FirstName = rog.Generate<string>();
             req.LastName = rog.Generate<string>();
             req.BillingRate = rog.Generate<decimal>();

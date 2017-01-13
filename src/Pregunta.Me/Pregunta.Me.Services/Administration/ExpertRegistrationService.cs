@@ -3,16 +3,16 @@ using Pregunta.Me.Core.Administration;
 
 namespace Pregunta.Me.Services.Administration
 {
-    public class AdminService
+    public class ExpertRegistrationService : Base.Interactor<ExpertRegistrationService, IExpertRegistrationRequest, IExpertRegistrationResponse> 
     {
-        public AdminService()
+        public ExpertRegistrationService()
         {
             IsValid = true;
         }
 
         public bool IsValid { get; set; }
 
-        public ExpertEdit CreateExpert(string firstName, string lastName, string email, string currency, decimal billingRate, string language, string country)
+        private ExpertEdit CreateExpert(string firstName, string lastName, string email, string currency, decimal billingRate, string language, string country)
         {
             var user = ExpertEdit.Register(firstName, lastName, email, currency, billingRate, language, country);
             user.Save();
@@ -25,29 +25,20 @@ namespace Pregunta.Me.Services.Administration
             return new ExpertRegistrationRequest();
         }
 
-        public InquirerEdit CreateInquirer(string firstName, string lastName, string email)
-        {
-            var user = InquirerEdit.Register(firstName, lastName, email);
-            user.Save();
-
-            return user;
-        }
-
-        internal IExpertRegistrationResponse RegisterExpert(IExpertRegistrationRequest request)
+        public override IExpertRegistrationResponse Process(IExpertRegistrationRequest request)
         {
             var response = new ExpertRegistrationResponse();
 
             try
             {
                 response.SetExpert(this.CreateExpert(request.FirstName, request.LastName, request.Email, request.Currency, request.BillingRate, request.Language, request.Country));
-
+                return response;
             }
             catch (ArgumentNullException ex)
             {
-                response.SetExceptions(ex);
+                response.AddException(ex);
+                return response;
             }
-
-            return response; 
         }
     }
 }
