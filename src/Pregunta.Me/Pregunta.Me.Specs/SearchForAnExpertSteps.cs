@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pregunta.Me.Core.Administration;
+using Pregunta.Me.Core.ValueObjects;
 using Pregunta.Me.Infra.DataAccess;
 using Pregunta.Me.Plugin.Contracts.DataAccess;
 using Pregunta.Me.Services.Administration;
@@ -54,7 +55,9 @@ namespace Pregunta.Me.Specs
         {
             foreach (var expert in _expertSearchResult.Result)
             {
+                var expertUnitCost = expert.BillingRate.Rate;
                 Assert.AreEqual(_expertSearchRequest.AreaOfExpertise, expert.AreaOfExpertise);
+                Assert.AreNotEqual(Money.NoMoney(expertUnitCost), expert.BillingRate.CalculateBillingAmount(1));
             };
         }
     }

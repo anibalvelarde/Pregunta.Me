@@ -32,6 +32,14 @@ namespace Pregunta.Me.Core.ValueObjects
         {
             return new Money(a.Currency, (a.Amount * multiplier));
         }
+        public static Money NoMoney(Money m)
+        {
+            return NoMoney(m.Currency);
+        }
+        public static Money NoMoney(string currency)
+        {
+            return new Money(currency, 0);
+        }
         public override string ToString()
         {
             return $"{this.Amount.ToString()} {this.Currency}";
