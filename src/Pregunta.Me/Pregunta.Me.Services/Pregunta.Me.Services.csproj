@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\ExpertSearchService.cs" />
+    <Compile Include="Administration\Search\ExpertSearchRequest.cs" />
+    <Compile Include="Administration\Search\ExpertSearchResult.cs" />
+    <Compile Include="Administration\Search\IExpertSearchResult.cs" />
     <Compile Include="Administration\Inquirers\IInquirerRegistrationRequest.cs" />
     <Compile Include="Administration\Inquirers\IInquirerRegistrationResponse.cs" />
     <Compile Include="Administration\Inquirers\InquirerRegistrationRequest.cs" />
@@ -50,6 +54,7 @@
     <Compile Include="Administration\Experts\ExpertRegistrationResponse.cs" />
     <Compile Include="Administration\Experts\IExpertRegistrationRequest.cs" />
     <Compile Include="Administration\Experts\IExpertRegistrationResponse.cs" />
+    <Compile Include="Administration\Search\IExpertSearchRequest.cs" />
     <Compile Include="Base\Interactor.cs" />
     <Compile Include="Base\IRequest.cs" />
     <Compile Include="Base\IResponse.cs" />
@@ -61,6 +66,14 @@
       <Project>{7d8b05e8-100b-4112-808c-99bb6c71c98f}</Project>
       <Name>Pregunta.Me.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pregunta.Me.Plugin.Contracts\Pregunta.Me.Plugin.Contracts.csproj">
+      <Project>{4e7816ce-6825-4b36-bd58-dbbaccb9b3da}</Project>
+      <Name>Pregunta.Me.Plugin.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Answers\" />
+    <Folder Include="Questions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

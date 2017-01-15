@@ -67,6 +67,8 @@
     <Compile Include="Core\Administration\ExpertEditTests.cs" />
     <Compile Include="Core\Administration\InquirerEditTest.cs" />
     <Compile Include="Core\ValueObjectTests\EmailTests.cs" />
+    <Compile Include="Core\ValueObjectTests\MoneyTests.cs" />
+    <Compile Include="Core\ValueObjectTests\BillingRateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomObjectGeneratorSingleton.cs" />
     <Compile Include="Serivces\AdminServiceTests.cs" />

@@ -43,7 +43,6 @@ namespace Pregunta.Me.Core.ValueObjects
                 && Host == other.Host
                 && User == other.User;
         }
-
         protected override int GetHashCodeCore()
         {
             ///////////////

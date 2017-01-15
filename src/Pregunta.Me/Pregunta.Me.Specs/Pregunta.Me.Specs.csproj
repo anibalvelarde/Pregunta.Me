@@ -60,7 +60,13 @@
       <DependentUpon>Admin.feature</DependentUpon>
     </Compile>
     <Compile Include="AdminSteps.cs" />
+    <Compile Include="Expert.Search.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Expert.Search.feature</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchForAnExpertSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Admin.feature">
@@ -68,6 +74,10 @@
       <LastGenOutput>Admin.feature.cs</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="Expert.Search.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>Expert.Search.feature.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -75,14 +85,20 @@
       <Project>{7d8b05e8-100b-4112-808c-99bb6c71c98f}</Project>
       <Name>Pregunta.Me.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Pregunta.Me.Infra.DataAccess\Pregunta.Me.Infra.DataAccess.csproj">
+      <Project>{6b6a1d27-d9d5-4414-b031-a9403250f2dd}</Project>
+      <Name>Pregunta.Me.Infra.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pregunta.Me.Plugin.Contracts\Pregunta.Me.Plugin.Contracts.csproj">
+      <Project>{4E7816CE-6825-4B36-BD58-DBBACCB9B3DA}</Project>
+      <Name>Pregunta.Me.Plugin.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Pregunta.Me.Services\Pregunta.Me.Services.csproj">
       <Project>{ea86aa9b-ab2c-4ec1-b380-cf1ee39f14e4}</Project>
       <Name>Pregunta.Me.Services</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ValueObjects\" />
-  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

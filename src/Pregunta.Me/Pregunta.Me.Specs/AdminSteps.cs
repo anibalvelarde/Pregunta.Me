@@ -1,7 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pregunta.Me.Services.Administration;
-using Pregunta.Me.Core.Administration;
-using System;
 using TechTalk.SpecFlow;
 
 namespace Pregunta.Me.Specs

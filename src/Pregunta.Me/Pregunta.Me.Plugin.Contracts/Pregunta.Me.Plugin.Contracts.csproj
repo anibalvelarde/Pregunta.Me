@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7D8B05E8-100B-4112-808C-99BB6C71C98F}</ProjectGuid>
+    <ProjectGuid>{4E7816CE-6825-4B36-BD58-DBBACCB9B3DA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pregunta.Me.Core</RootNamespace>
-    <AssemblyName>Pregunta.Me.Core</AssemblyName>
+    <RootNamespace>Pregunta.Me.Plugin.Contracts</RootNamespace>
+    <AssemblyName>Pregunta.Me.Plugin.Contracts</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,24 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration\ExpertEdit.cs" />
-    <Compile Include="Administration\InquirerInfo.cs" />
-    <Compile Include="Administration\ExpertInfo.cs" />
-    <Compile Include="Administration\InquirerEdit.cs" />
-    <Compile Include="Base\AggregateRoot.cs" />
-    <Compile Include="Base\Entity.cs" />
-    <Compile Include="Base\ValueObject.cs" />
+    <Compile Include="Base\Dto.cs" />
+    <Compile Include="DataAccess\IInquirerModelRepository.cs" />
+    <Compile Include="DataAccess\IExpertModelRepository.cs" />
+    <Compile Include="DataAccess\IRepository.cs" />
+    <Compile Include="DataTransferObjects\InquirerInfoDto.cs" />
+    <Compile Include="DataTransferObjects\ExpertInfoDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObjects\BillingRate.cs" />
-    <Compile Include="ValueObjects\Email.cs" />
-    <Compile Include="ValueObjects\Money.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pregunta.Me.Plugin.Contracts\Pregunta.Me.Plugin.Contracts.csproj">
-      <Project>{4e7816ce-6825-4b36-bd58-dbbaccb9b3da}</Project>
-      <Name>Pregunta.Me.Plugin.Contracts</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
