@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pregunta.Me.Services.Administration;
+using Pregunta.Me.Core.ValueObjects;
 
 namespace Pregunta.Me.UnitTests.Serivces
 {
@@ -26,6 +27,7 @@ namespace Pregunta.Me.UnitTests.Serivces
             // arrange...
             IExpertRegistrationRequest request = this.MakeNewRegistrationRequest();
             var svc = new ExpertRegistrationService();
+            var expBillingRate = new BillingRate(request.BillingRate, request.Currency);
 
             // act...
             IExpertRegistrationResponse response = svc.Process(request);
@@ -35,11 +37,10 @@ namespace Pregunta.Me.UnitTests.Serivces
             Assert.IsTrue(response.IsValid);
             Assert.AreEqual(request.FirstName, response.Expert.FirstName, "Failed to set First Name.");
             Assert.AreEqual(request.LastName, response.Expert.LastName, "Failed to set Last Name.");
-            Assert.AreEqual(request.BillingRate, response.Expert.BillingRate, "Failed to set Billing Rate.");
             Assert.AreEqual(request.Country, response.Expert.Country, "Failed to set County.");
-            Assert.AreEqual(request.Currency, response.Expert.Currency, "Failed to set Currency.");
             Assert.AreEqual(request.Email, response.Expert.Email.Address, "Failed to set Email.");
             Assert.AreEqual(request.Language, response.Expert.Language, "Failed to set Language.");
+            Assert.AreEqual(expBillingRate, response.Expert.BillingRate, "Failed to set Billing Rate.");
         }
 
         [TestMethod]
@@ -66,7 +67,7 @@ namespace Pregunta.Me.UnitTests.Serivces
             var req = ExpertRegistrationService.IssueNewRegistrationRequestForExpert();
             req.FirstName = rog.Generate<string>();
             req.LastName = rog.Generate<string>();
-            req.BillingRate = rog.Generate<decimal>();
+            req.BillingRate = rog.Generate<double>();
             req.Country = "USA";
             req.Currency = "USD";
             req.Email = "anyuser@anydomain.com";

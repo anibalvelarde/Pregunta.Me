@@ -7,7 +7,7 @@
 
         }
 
-        public decimal BillingRate { get; set; }
+        public double BillingRate { get; set; }
 
         public string Country { get; set; }
 

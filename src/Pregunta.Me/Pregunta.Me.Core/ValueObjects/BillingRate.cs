@@ -9,6 +9,7 @@ namespace Pregunta.Me.Core.ValueObjects
 {
     public enum Unit
     {
+        Invalid,
         Answer
     }
 
@@ -19,11 +20,13 @@ namespace Pregunta.Me.Core.ValueObjects
             this.Rate = rate;
             this.Currency = currency;
             this.Unit = Unit.Answer;
+            this.IsValid = true;
         }
 
         public double Rate { get; private set; }
         public string Currency { get; private set; }
         public Unit Unit { get; private set; }
+        public bool IsValid { get; internal set; }
 
         public Money CalculateBillingAmount(int unitCount)
         {

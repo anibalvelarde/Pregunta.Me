@@ -12,7 +12,7 @@ namespace Pregunta.Me.Services.Administration
 
         public bool IsValid { get; set; }
 
-        private ExpertEdit CreateExpert(string firstName, string lastName, string email, string currency, decimal billingRate, string language, string country)
+        private ExpertEdit CreateExpert(string firstName, string lastName, string email, string currency, double billingRate, string language, string country)
         {
             var user = ExpertEdit.Register(firstName, lastName, email, currency, billingRate, language, country);
             user.Save();
