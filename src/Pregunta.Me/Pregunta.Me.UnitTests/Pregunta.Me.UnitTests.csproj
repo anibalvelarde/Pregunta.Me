@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Core\Administration\ExpertEditTests.cs" />
     <Compile Include="Core\Administration\InquirerEditTest.cs" />
+    <Compile Include="Core\Administration\ExpertInfoTests.cs" />
     <Compile Include="Core\ValueObjectTests\EmailTests.cs" />
     <Compile Include="Core\ValueObjectTests\MoneyTests.cs" />
     <Compile Include="Core\ValueObjectTests\BillingRateTests.cs" />
@@ -82,6 +83,10 @@
     <ProjectReference Include="..\Pregunta.Me.Core\Pregunta.Me.Core.csproj">
       <Project>{7d8b05e8-100b-4112-808c-99bb6c71c98f}</Project>
       <Name>Pregunta.Me.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pregunta.Me.Plugin.Contracts\Pregunta.Me.Plugin.Contracts.csproj">
+      <Project>{4e7816ce-6825-4b36-bd58-dbbaccb9b3da}</Project>
+      <Name>Pregunta.Me.Plugin.Contracts</Name>
     </ProjectReference>
     <ProjectReference Include="..\Pregunta.Me.Services\Pregunta.Me.Services.csproj">
       <Project>{ea86aa9b-ab2c-4ec1-b380-cf1ee39f14e4}</Project>
