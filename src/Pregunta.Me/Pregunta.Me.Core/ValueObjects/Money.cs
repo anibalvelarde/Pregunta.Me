@@ -11,7 +11,9 @@ namespace Pregunta.Me.Core.ValueObjects
     {
         public Money(string currency, double amount)
         {
+            ValidateCurrency(currency);
             this.Currency = currency;
+            ValidateMoneyAmount(amount);
             this.Amount = amount;
         }
 
@@ -60,7 +62,20 @@ namespace Pregunta.Me.Core.ValueObjects
         {
             return a.Currency.Equals(b.Currency);
         }
-
+        private static void ValidateCurrency(string currency)
+        {
+            if(currency.Length != 3)
+            {
+                throw new ArgumentException($"Invalid mondy currency code: {currency}.");
+            }
+        }
+        private static void ValidateMoneyAmount(double amount)
+        {
+            if(amount < 0)
+            {
+                throw new ArgumentException($"Money amount cannot be less than zero: {amount.ToString()}");
+            }
+        }
         protected override bool EqualsCore(Money other)
         {
             return Currency == other.Currency &&
