@@ -17,26 +17,23 @@ namespace Pregunta.Me.Core.ValueObjects
     {
         public BillingRate(double rate, string currency)
         {
-            this.Rate = rate;
-            this.Currency = currency;
+            this.Rate = new Money(currency, rate);
             this.Unit = Unit.Answer;
             this.IsValid = true;
         }
 
-        public double Rate { get; private set; }
-        public string Currency { get; private set; }
+        public Money Rate { get; private set; }
         public Unit Unit { get; private set; }
         public bool IsValid { get; internal set; }
 
         public Money CalculateBillingAmount(int unitCount)
         {
-            return new Money(this.Currency, (unitCount * Rate));
+            return this.Rate * unitCount;
         }
 
         protected override bool EqualsCore(BillingRate other)
         {
-            return Currency == other.Currency &&
-                   Rate == other.Rate && 
+            return Rate == other.Rate && 
                    Unit == other.Unit;
         }
         protected override int GetHashCodeCore()
@@ -47,7 +44,6 @@ namespace Pregunta.Me.Core.ValueObjects
             // http://stackoverflow.com/questions/371328/why-is-it-important-to-override-gethashcode-when-equals-method-is-overridden
             ///////////////
             int hash = 13;
-            hash = (hash * 7) + Currency.GetHashCode();
             hash = (hash * 7) + Rate.GetHashCode();
             hash = (hash * 7) + Unit.GetHashCode();
             return hash;

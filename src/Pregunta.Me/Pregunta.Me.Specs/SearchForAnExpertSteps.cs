@@ -13,8 +13,6 @@ namespace Pregunta.Me.Specs
     {
         private IInquirerModelRepository _repoInq = new InquirerModelRepository();
         private IExpertModelRepository _repoExp = new ExpertModelRepository();
-        int expertIdentifier = 2000;
-        private ExpertInfo _expert;
         int inquirerIdentifier = 1000;
         private InquirerInfo _inquirer;
         private ExpertSearchService _svc;
@@ -31,6 +29,8 @@ namespace Pregunta.Me.Specs
         {
             this.Initialize();
             _inquirer = InquirerInfo.Fetch(inquirerIdentifier, _repoInq);
+            Assert.IsNotNull(_inquirer);
+            Assert.IsInstanceOfType(_inquirer, typeof(InquirerInfo));
         }
 
         [Given(@"Area of Expretise to search")]

@@ -17,10 +17,29 @@ namespace Pregunta.Me.Core.ValueObjects
 
         public string Currency { get; private set; }
         public double Amount { get; private set; }
+        public static Money operator +(Money a, Money b)
+        {
+            if (IsOfSameCurrency(a, b))
+            {
+                return new Money(a.Currency, (a.Amount + b.Amount));
+            }
+            else
+            {
+                throw new InvalidOperationException($"Attempted to add different currencies A:[{a.ToString()}] and B:[{b.ToString()}]");
+            }
+        }
+        public static Money operator *(Money a, int multiplier)
+        {
+            return new Money(a.Currency, (a.Amount * multiplier));
+        }
+        public override string ToString()
+        {
+            return $"{this.Amount.ToString()} {this.Currency}";
+        }
 
         public Money Add(Money m)
         {
-            if (IsOfSameCurrency(m))
+            if (IsOfSameCurrency(this, m))
             {
                 return new Money(this.Currency, (this.Amount + m.Amount));
             }
@@ -29,9 +48,9 @@ namespace Pregunta.Me.Core.ValueObjects
                 return this;
             }
         }
-        private bool IsOfSameCurrency(Money m)
+        private static bool IsOfSameCurrency(Money a, Money b)
         {
-            return this.Currency.Equals(m.Currency);
+            return a.Currency.Equals(b.Currency);
         }
 
         protected override bool EqualsCore(Money other)
