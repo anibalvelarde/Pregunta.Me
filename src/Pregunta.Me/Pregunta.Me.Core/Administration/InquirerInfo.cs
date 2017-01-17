@@ -9,7 +9,8 @@ namespace Pregunta.Me.Core.Administration
     {
         private InquirerInfo(InquirerInfoDto initData)
         {
-            this.FristName = initData.FirstName;
+            this.Id = initData.Id;
+            this.FirstName = initData.FirstName;
             this.LastName = initData.LastName;
             this.Email = Email.Create(initData.Email, $"{initData.FirstName} {initData.LastName}");
         }
@@ -20,7 +21,7 @@ namespace Pregunta.Me.Core.Administration
             return new InquirerInfo(dto);
         }
 
-        public string FristName { get; private set; }
+        public string FirstName { get; private set; }
         public string LastName { get; private set; }
         public Email Email { get; private set; }
     }

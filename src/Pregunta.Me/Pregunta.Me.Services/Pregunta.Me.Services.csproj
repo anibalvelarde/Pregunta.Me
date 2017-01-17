@@ -59,6 +59,11 @@
     <Compile Include="Base\IRequest.cs" />
     <Compile Include="Base\IResponse.cs" />
     <Compile Include="Base\Response.cs" />
+    <Compile Include="Operators\Questions\IQuestionReceipt.cs" />
+    <Compile Include="Operators\Questions\IQuestionRequest.cs" />
+    <Compile Include="Operators\Questions\QuestionRequest.cs" />
+    <Compile Include="Operators\Questions\QuestionReceipt.cs" />
+    <Compile Include="Operators\Receptionist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,8 +77,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Answers\" />
-    <Folder Include="Questions\" />
+    <Folder Include="Operators\Answers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

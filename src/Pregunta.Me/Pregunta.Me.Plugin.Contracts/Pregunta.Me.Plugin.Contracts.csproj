@@ -43,9 +43,11 @@
     <Compile Include="Base\Dto.cs" />
     <Compile Include="DataAccess\IInquirerModelRepository.cs" />
     <Compile Include="DataAccess\IExpertModelRepository.cs" />
+    <Compile Include="DataAccess\IQuestionnaireRepository.cs" />
     <Compile Include="DataAccess\IRepository.cs" />
     <Compile Include="DataTransferObjects\InquirerInfoDto.cs" />
     <Compile Include="DataTransferObjects\ExpertInfoDto.cs" />
+    <Compile Include="DataTransferObjects\QuestionDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

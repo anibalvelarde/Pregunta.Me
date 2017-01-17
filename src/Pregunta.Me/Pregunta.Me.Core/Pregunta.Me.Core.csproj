@@ -45,12 +45,17 @@
     <Compile Include="Administration\ExpertInfo.cs" />
     <Compile Include="Administration\InquirerEdit.cs" />
     <Compile Include="Base\AggregateRoot.cs" />
+    <Compile Include="Base\DomainService.cs" />
     <Compile Include="Base\Entity.cs" />
     <Compile Include="Base\ValueObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IQuestionnaire.cs" />
+    <Compile Include="Services\Questionnaire.cs" />
+    <Compile Include="ValueObjects\Answer.cs" />
     <Compile Include="ValueObjects\BillingRate.cs" />
     <Compile Include="ValueObjects\Email.cs" />
     <Compile Include="ValueObjects\Money.cs" />
+    <Compile Include="ValueObjects\Question.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Pregunta.Me.Plugin.Contracts\Pregunta.Me.Plugin.Contracts.csproj">
